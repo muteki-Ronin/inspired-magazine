@@ -1,14 +1,15 @@
 // COMPONENTS
+import { Container } from "../../Layout/Container";
 import { Gender } from "./Gender/Gender";
 import { Category } from "./Category/Category";
 
-export const Navigation = () => {
+export const Navigation = ({ mockList }) => {
   return (
     <nav>
-      <div className="container">
-        <Gender />
-        <Category />
-      </div>
+      <Container>
+        <Gender mockList={mockList} />
+        <Category mockList={mockList} />
+      </Container>
     </nav>
   );
 };
