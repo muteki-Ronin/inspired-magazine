@@ -1,5 +1,5 @@
 // COMPONENTS
-import { Container } from "../Layout/Container";
+import { Container } from "../Layout/Container/Container";
 import { Category } from "./Category/Category";
 import { Contacts } from "./Contacts/Contacts";
 import { Social } from "./Social/Social";

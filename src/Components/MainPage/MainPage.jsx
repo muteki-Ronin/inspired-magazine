@@ -1,7 +1,7 @@
 // CORE
 import { useParams } from "react-router-dom";
 // COMPONENTS
-import { Container } from "../Layout/Container";
+import { Container } from "../Layout/Container/Container";
 
 export const MainPage = ({ gender = "woman" }) => {
   const { category } = useParams();

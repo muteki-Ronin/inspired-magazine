@@ -1,7 +1,6 @@
 // COMPONENTS
-import { Container } from "../../Layout/Container";
+import { Container } from "../../Layout/Container/Container";
 // STYLES
-import cn from "classnames";
 import style from "./Top.module.scss";
 // ICONS
 import logo from "/src/assets/logo.svg";
@@ -11,11 +10,14 @@ import heart from "/src/assets/icons/heart.svg";
 
 export const Top = () => {
   return (
-    <div className="top">
+    <div className={style.top}>
       <Container className={style.topContainer}>
-        <a className={cn(style.topLink, style.topPhone)} href="tel:80001234567">
-          8 000 123 45 67
-        </a>
+        <div className={style.topPhone}>
+          <a className={style.topLink} href="tel:80001234567">
+            8 000 123 45 67
+          </a>
+        </div>
+
         <a className={style.topLogo} href="/">
           <img src={logo} alt="Logo Inspired" />
         </a>
