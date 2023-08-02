@@ -33,11 +33,11 @@ const mockList = [
 export const Root = () => {
   return (
     <>
-      <Header mockList={mockList}/>
+      <Header />
       <Main>
         <Outlet />
       </Main>
-      <Footer mockList={mockList}/>
+      <Footer mockList={mockList} />
     </>
   );
 };
