@@ -14,7 +14,7 @@ import style from "./Navigation.module.scss";
 export const Navigation = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const gender = location.pathname.split("/")[1] || "woman";
+  const gender = location.pathname.split("/")[1] || "women";
 
   useEffect(() => {
     dispatch(setActiveGender(gender));

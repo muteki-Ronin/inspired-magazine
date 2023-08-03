@@ -7,7 +7,7 @@ import { Footer } from "../Components/Footer/Footer";
 
 const mockList = [
   {
-    link: "woman",
+    link: "women",
     title: "Женщины",
     categories: [
       { link: "bras", title: "Бюстгальтеры" },
@@ -19,7 +19,7 @@ const mockList = [
     ],
   },
   {
-    link: "man",
+    link: "men",
     title: "Мужчины",
     categories: [
       { link: "panties", title: "Трусы" },
