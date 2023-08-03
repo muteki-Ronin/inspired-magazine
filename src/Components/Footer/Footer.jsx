@@ -8,12 +8,12 @@ import { Development } from "./Development/Development";
 // STYLES
 import style from "./Footer.module.scss";
 
-export const Footer = ({ mockList }) => {
+export const Footer = () => {
   return (
     <footer>
       <Container>
         <div className={style.container}>
-          <Category mockList={mockList} />
+          <Category />
           <Contacts />
           <Social />
           <Copyright />

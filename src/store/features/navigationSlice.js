@@ -1,6 +1,6 @@
 // CORE
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// CONSTS
+// API_CONSTS
 import { CATEGORIES_URL } from "../../api/consts";
 
 const initialState = {
