@@ -8,8 +8,6 @@ import { Gender } from "./Gender/Gender";
 import { Category } from "./Category/Category";
 // ACTIONS
 import { setActiveGender } from "../../../store/features/navigationSlice";
-// STYLES
-import style from "./Navigation.module.scss";
 
 export const Navigation = () => {
   const dispatch = useDispatch();
@@ -21,7 +19,7 @@ export const Navigation = () => {
   }, [gender, dispatch]);
 
   return (
-    <nav className={style.navigation}>
+    <nav>
       <Container>
         <Gender />
         <Category />
