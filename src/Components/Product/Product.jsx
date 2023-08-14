@@ -14,9 +14,8 @@ export const Product = ({ id, pic, title, price, colors }) => {
     <article className={style.product}>
       <NavLink to={`product/${id}`} className={style.link}>
         <img className={style.image} src={`${API_URL}${pic}`} />
+        <h3 className={style.title}>{title}</h3>
       </NavLink>
-
-      <h3 className={style.title}>{title}</h3>
 
       <div className={style.row}>
         <p className={style.price}>{price} грн.</p>

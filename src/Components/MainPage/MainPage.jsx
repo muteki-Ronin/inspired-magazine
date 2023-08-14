@@ -5,19 +5,33 @@ import { useDispatch, useSelector } from "react-redux";
 // COMPONENTS
 import { Container } from "../Layout/Container/Container";
 import { Product } from "../Product/Product";
-// ACTIONS
-import { fetchGoods } from "../../store/features/goodsSlice";
-// STYLE
+// STYLES
 import style from "./MainPage.module.scss";
+// ACTIONS
+import { setActiveGender } from "../../store/features/navigationSlice";
+import { fetchCategory, fetchGender } from "../../store/features/goodsSlice";
 
-export const MainPage = ({ gender = "women" }) => {
-  const { category } = useParams();
+export const MainPage = () => {
+  const { gender, category } = useParams();
   const dispatch = useDispatch();
   const { goodsList } = useSelector((state) => state.goodsReducer);
+  // const { activeGender, categories } = useSelector((state) => state.navigation);
 
   useEffect(() => {
-    dispatch(fetchGoods(gender));
+    dispatch(setActiveGender(gender));
   }, [gender, dispatch]);
+
+  useEffect(() => {
+    if (gender && category) {
+      dispatch(fetchCategory({ gender, category }));
+      return;
+    }
+
+    if (gender) {
+      dispatch(fetchGender(gender));
+      return;
+    }
+  }, [gender, category, dispatch]);
 
   return (
     <section>
