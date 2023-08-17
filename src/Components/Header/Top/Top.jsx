@@ -1,3 +1,5 @@
+// CORE
+import { NavLink } from "react-router-dom";
 // COMPONENTS
 import { Container } from "../../Layout/Container/Container";
 // STYLES
@@ -18,9 +20,9 @@ export const Top = () => {
           </a>
         </div>
 
-        <a className={style.topLogo} href="/">
+        <NavLink className={style.topLogo} to="/">
           <img src={logo} alt="Logo Inspired" />
-        </a>
+        </NavLink>
         <div className={style.topNavigation}>
           <ul className={style.topNavList}>
             <li className={style.navItem}>
