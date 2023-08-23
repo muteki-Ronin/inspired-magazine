@@ -9,7 +9,9 @@ import {
 import { useDispatch } from "react-redux";
 // COMPONENTS
 import { Root } from "./routes/Root";
+// PAGES
 import { MainPage } from "./Components/MainPage/MainPage";
+import { ProductPage } from "./Pages/ProductPage/ProductPage";
 import { ErrorPage } from "./Components/ErrorPage/ErrorPage";
 // ACTIONS
 import { fetchNavigation } from "./store/features/navigationSlice";
@@ -20,6 +22,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Root />}>
       <Route index element={<MainPage />} />
       <Route path="catalog/:gender/:category?" element={<MainPage />} />
+      <Route path="product/:id" element={<ProductPage />} />
       {/* <Route path="women" element={<MainPage gender="women" />} />
       <Route path="men" element={<MainPage gender="men" />} />
       <Route path="kids" element={<MainPage gender="kids" />} />

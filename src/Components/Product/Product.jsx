@@ -12,7 +12,7 @@ import { ReactComponent as Like } from "../../assets/icons/heart_product.svg";
 export const Product = ({ id, pic, title, price, colors, description }) => {
   return (
     <article className={style.product}>
-      <NavLink to={`product/${id}`} className={style.link}>
+      <NavLink to={`/product/${id}`} className={style.link}>
         <img
           className={style.image}
           src={`${API_URL}${pic}`}
