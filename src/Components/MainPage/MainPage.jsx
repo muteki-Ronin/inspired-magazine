@@ -44,7 +44,7 @@ export const MainPage = () => {
   return (
     <>
       {!category && <Banner data={genderData?.banner} />}
-      <Goods categoryData={categoryData} />
+      <Goods title={categoryData?.title} />
     </>
   );
 };
