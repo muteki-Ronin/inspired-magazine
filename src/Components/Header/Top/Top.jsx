@@ -3,12 +3,13 @@ import { NavLink } from "react-router-dom";
 // COMPONENTS
 import { Container } from "../../Layout/Container/Container";
 // STYLES
+import cn from "classnames";
 import style from "./Top.module.scss";
 // ICONS
 import logo from "/src/assets/logo.svg";
-import search from "/src/assets/icons/search.svg";
-import basket from "/src/assets/icons/basket.svg";
-import heart from "/src/assets/icons/heart.svg";
+import { ReactComponent as SearchSVG } from "../../../assets/icons/search.svg";
+import { ReactComponent as BasketSVG } from "../../../assets/icons/basket.svg";
+import { ReactComponent as LikeSVG } from "../../../assets/icons/heart.svg";
 
 export const Top = () => {
   return (
@@ -27,18 +28,21 @@ export const Top = () => {
           <ul className={style.topNavList}>
             <li className={style.navItem}>
               <button className={style.topLink}>
-                <img src={search} alt="Search" />
+                <SearchSVG />
               </button>
             </li>
             <li className={style.navItem}>
-              <a className={style.topLink}>
-                <img src={basket} alt="Basket" />
-              </a>
+              <NavLink to="/cart" className={style.topLink}>
+                <BasketSVG />
+              </NavLink>
             </li>
             <li className={style.navItem}>
-              <a className={style.topLink}>
-                <img src={heart} alt="Heart" />
-              </a>
+              <NavLink
+                to="/favorite"
+                className={cn(style.topLink, style.like)}
+              >
+                <LikeSVG />
+              </NavLink>
             </li>
           </ul>
         </div>

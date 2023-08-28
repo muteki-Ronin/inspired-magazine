@@ -1,6 +1,7 @@
 .card {
   margin-bottom: 100px;
 }
+
 .container {
   display: flex;
   justify-content: center;
@@ -16,7 +17,7 @@
 }
 
 .image {
-  width: 471px;
+  min-width: 471px;
   height: 622px;
   object-fit: cover;
 

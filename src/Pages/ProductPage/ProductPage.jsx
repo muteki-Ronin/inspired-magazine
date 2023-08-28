@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 // COMPONENTS
 import { Container } from "../../Components/Layout/Container/Container";
 import { ColorList } from "../../Components/ColorList/ColorList";
-import { ReactComponent as Like } from "../../assets/icons/heart.svg";
 import { ProductSize } from "./ProductSize/ProductSize";
 import { Count } from "../../Components/Count/Count";
 import { Goods } from "../../Components/Goods/Goods";
+import { BtnLike } from "../../Components/BtnLike/BtnLike";
 // ACTIONS
 import { fetchProduct } from "../../store/features/productSlice";
 import { fetchCategory } from "../../store/features/goodsSlice";
@@ -108,13 +108,7 @@ export const ProductPage = () => {
 
               <button className={style.addCart}>В корзину</button>
 
-              <button
-                className={style.favorite}
-                aria-label="Добавить в избранное"
-                type="button"
-              >
-                <Like />
-              </button>
+              <BtnLike id={id} />
             </div>
           </form>
         </Container>
