@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 // COMPONENTS
 import { Container } from "../Layout/Container/Container";
 import { Product } from "../Product/Product";
+import { Pagination } from "../Pagination/Pagination";
 // STYLES
 import style from "./Goods.module.scss";
 
@@ -22,7 +23,7 @@ export const Goods = ({ title }) => {
             </li>
           ))}
         </ul>
-        {/* {category && <p>Категория: {category}</p>} */}
+        <Pagination />
       </Container>
     </section>
   );
