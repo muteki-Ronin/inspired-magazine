@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // COMPONENTS
 import { Goods } from "../Goods/Goods";
-// STYLES
-
+// HOOKS
+import { usePageFromSearchParams } from "../../hooks/usePageFromSearchParams";
 // ACTIONS
 import { setActiveGender } from "../../store/features/navigationSlice";
 import { fetchCategory, fetchGender } from "../../store/features/goodsSlice";
@@ -20,6 +20,8 @@ export const MainPage = () => {
   const genderData = categories[activeGender];
   const categoryData = genderData?.list.find((item) => item.slug === category);
 
+  const page = usePageFromSearchParams(dispatch);
+
   useEffect(() => {
     if (gender) {
       dispatch(setActiveGender(gender));
@@ -31,7 +33,11 @@ export const MainPage = () => {
 
   useEffect(() => {
     if (gender && category) {
-      dispatch(fetchCategory({ gender, category }));
+      const params = { gender, category };
+      if (page) {
+        params.page = page;
+      }
+      dispatch(fetchCategory(params));
       return;
     }
 
@@ -39,7 +45,7 @@ export const MainPage = () => {
       dispatch(fetchGender(gender));
       return;
     }
-  }, [gender, category, dispatch]);
+  }, [gender, category, page, dispatch]);
 
   return (
     <>
