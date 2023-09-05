@@ -5,7 +5,7 @@ const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
 const initialState = {
   cartItems,
-  countItems: cartItems.lenght,
+  countItems: cartItems.length,
 };
 
 const cartSlice = createSlice({
