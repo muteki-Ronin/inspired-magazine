@@ -5,12 +5,19 @@ import { CartItem } from "./CartItem/CartItem";
 import style from "./Cart.module.scss";
 
 export const Cart = ({ cartItems, goodsList }) => {
-  const totalPrice = 0;
+  const totalPrice = cartItems.reduce((sum, item) => {
+    const product = goodsList.find((product) => product.id === item.id);
+    if (product) {
+      return sum + product.price * item.count;
+    } else {
+      return sum;
+    }
+  }, 0);
 
   return (
     <section className={style.cart}>
       <Container>
-        <h2 className={style.cart}>Корзина</h2>
+        <h2 className={style.title}>Корзина</h2>
 
         {goodsList.length ? (
           <ul className={style.list}>
@@ -24,7 +31,7 @@ export const Cart = ({ cartItems, goodsList }) => {
             ))}
           </ul>
         ) : (
-          <h3>В корзине пусто</h3>
+          <h3 className={style.empty}>В корзине пусто.</h3>
         )}
         <div className={style.total}>
           <p>Итого:</p>

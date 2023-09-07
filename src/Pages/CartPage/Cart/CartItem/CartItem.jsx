@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 // COMPONENTS
 import { Count } from "../../../../Components/Count/Count";
 // ACTIONS
-import { addToCart } from "../../../../store/features/cartSlice";
+import {
+  addToCart,
+  removeFromCart,
+} from "../../../../store/features/cartSlice";
 // STYLES
 import cn from "classnames";
 import style from "./CartItem.module.scss";
@@ -17,6 +20,10 @@ export const CartItem = ({ id, color, size, count, goodsList }) => {
 
   const handleCountChange = (count) => {
     dispatch(addToCart({ id, color, size, count }));
+  };
+
+  const handleRemoveItem = () => {
+    dispatch(removeFromCart({ id, color, size }));
   };
 
   return (
@@ -42,8 +49,10 @@ export const CartItem = ({ id, color, size, count, goodsList }) => {
           <div
             className={style.colorItem}
             style={{
-              "--data-color": colorList?.find((item) => item.title === color)
-                ?.code,
+              "--data-color": colorList?.find((item) => {
+                console.log("item: ", item);
+                item.title === color;
+              })?.code,
             }}
           ></div>
         </div>
@@ -57,13 +66,14 @@ export const CartItem = ({ id, color, size, count, goodsList }) => {
       <button
         className={style.del}
         aria-label="Удалить товар из корзины"
+        onClick={handleRemoveItem}
       ></button>
 
       <Count
         className={style.count}
         count={count}
         handleDecrement={() => handleCountChange(count - 1)}
-        handleIncrement={handleCountChange(count + 1)}
+        handleIncrement={() => handleCountChange(count + 1)}
       />
     </article>
   );

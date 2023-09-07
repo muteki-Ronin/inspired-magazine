@@ -54,8 +54,8 @@ export const ProductPage = () => {
     dispatch(
       addToCart({
         id,
-        selectedColor,
-        selectedSize,
+        color: selectedColor,
+        size: selectedSize,
         count,
       })
     );
@@ -102,8 +102,8 @@ export const ProductPage = () => {
               <p className={cn(style.subtitle, style.colorTitle)}>Цвет</p>
               <ColorList
                 colors={colors}
-                handleColorChange={handleColorChange}
                 selectedColor={selectedColor}
+                handleColorChange={handleColorChange} 
               />
             </div>
 
@@ -128,7 +128,9 @@ export const ProductPage = () => {
                 handleDecrement={handleDecrement}
               />
 
-              <button className={style.addCart}>В корзину</button>
+              <button className={style.addCart} type="submit">
+                В корзину
+              </button>
 
               <BtnLike id={id} />
             </div>

@@ -8,14 +8,16 @@ import { Pagination } from "../Pagination/Pagination";
 import style from "./Goods.module.scss";
 
 export const Goods = ({ title }) => {
-  const { goodsList } = useSelector((state) => state.goodsReducer);
-
-  // const title = categoryData?.title ?? "Новинки";
+  const { goodsList, totalCount } = useSelector((state) => state.goodsReducer);
 
   return (
     <section>
       <Container>
-        <h2 className={style.title}>{title ?? "Новинки"}</h2>
+        <h2 className={style.title}>
+          {title ?? "Новинки"}
+          {!!totalCount && <sup>&nbsp;({totalCount})</sup>}
+        </h2>
+
         <ul className={style.list}>
           {goodsList.map((item) => (
             <li key={item.id}>

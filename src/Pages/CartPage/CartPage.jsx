@@ -11,7 +11,7 @@ export const CartPage = () => {
   const dispatch = useDispatch();
   const { cartItems, countItems } = useSelector((state) => state.cartReducer);
   const { goodsList } = useSelector((state) => state.goodsReducer);
-  const [count, setCount] = useState(countItems);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (count !== countItems) {

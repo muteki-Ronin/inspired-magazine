@@ -1,5 +1,6 @@
 // CORE
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 // COMPONENTS
 import { Container } from "../../Layout/Container/Container";
 // STYLES
@@ -12,6 +13,7 @@ import { ReactComponent as BasketSVG } from "../../../assets/icons/basket.svg";
 import { ReactComponent as LikeSVG } from "../../../assets/icons/heart.svg";
 
 export const Top = () => {
+  const { countItems } = useSelector((state) => state.cartReducer);
   return (
     <div className={style.top}>
       <Container className={style.topContainer}>
@@ -26,21 +28,19 @@ export const Top = () => {
         </NavLink>
         <div className={style.topNavigation}>
           <ul className={style.topNavList}>
-            <li className={style.navItem}>
+            <li>
               <button className={style.topLink}>
                 <SearchSVG />
               </button>
             </li>
-            <li className={style.navItem}>
+            <li>
               <NavLink to="/cart" className={style.topLink}>
                 <BasketSVG />
+                <span className={style.topLinkCount}>{countItems}</span>
               </NavLink>
             </li>
-            <li className={style.navItem}>
-              <NavLink
-                to="/favorite"
-                className={cn(style.topLink, style.like)}
-              >
+            <li>
+              <NavLink to="/favorite" className={cn(style.topLink, style.like)}>
                 <LikeSVG />
               </NavLink>
             </li>
