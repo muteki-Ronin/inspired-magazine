@@ -1,5 +1,5 @@
 // CORE
-
+import { Formik, Form, Field, ErrorMessage } from "formik";
 // COMPONENTS
 import { Container } from "../Layout/Container/Container";
 // STYLE
@@ -9,17 +9,26 @@ export const Search = () => {
   return (
     <div className={style.search}>
       <Container>
-        <form className={style.form}>
-          <input
-            className={style.input}
-            type="search"
-            name="search"
-            placeholder="Найти..."
-          />
-          <button className={style.btn} type="submit">
-            Искать
-          </button>
-        </form>
+        <Formik>
+          <Form className={style.form}>
+            <label>
+              <Field
+                className={style.input}
+                type="search"
+                name="search"
+                placeholder="Найти..."
+              />
+              <ErrorMessage
+                className={style.error}
+                name="search"
+                component={"span"}
+              />
+            </label>
+            <button className={style.btn} type="submit">
+              Искать
+            </button>
+          </Form>
+        </Formik>
       </Container>
     </div>
   );
