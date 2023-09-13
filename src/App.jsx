@@ -15,6 +15,7 @@ import { ProductPage } from "./Pages/ProductPage/ProductPage";
 import { FavoritePage } from "./Pages/FavoritePage/FavoritePage";
 import { CartPage } from "./Pages/CartPage/CartPage";
 import { ErrorPage } from "./Components/ErrorPage/ErrorPage";
+import { SearchPage } from "./Pages/SearchPage/SearchPage";
 // ACTIONS
 import { fetchNavigation } from "./store/features/navigationSlice";
 import { fetchColors } from "./store/features/colorsSlice";
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
       <Route path="/product/:id" element={<ProductPage />} />
       <Route path="/favorite" element={<FavoritePage />} />
       <Route path="/cart" element={<CartPage />} />
+      <Route path="/search" element={<SearchPage />} />
 
       {/* <Route path="women" element={<MainPage gender="women" />} />
       <Route path="men" element={<MainPage gender="men" />} />
