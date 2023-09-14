@@ -1,13 +1,17 @@
 // CORE
+import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { PatternFormat } from "react-number-format";
 import * as Yup from "yup";
 // COMPONENTS
 import { Container } from "../../../Components/Layout/Container/Container";
+// ACTIONS
+import { sendOrder } from "../../../store/features/cartSlice";
 // STYLES
 import style from "./Order.module.scss";
 
 export const Order = ({ cartItems }) => {
+  const dispatch = useDispatch();
   const validationSchema = Yup.object({
     fio: Yup.string().required("Заполните ФИО!"),
     address: Yup.string().test(
@@ -30,7 +34,12 @@ export const Order = ({ cartItems }) => {
   });
 
   const handleSubmitOrder = (values) => {
-    console.log({ cartItems, values });
+    dispatch(
+      sendOrder({
+        order: cartItems,
+        values,
+      })
+    );
   };
 
   return (
