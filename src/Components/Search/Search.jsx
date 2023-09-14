@@ -1,6 +1,6 @@
 // CORE
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 // COMPONENTS
@@ -12,7 +12,6 @@ import style from "./Search.module.scss";
 
 export const Search = () => {
   const dispatch = useDispatch();
-  const { openSearch } = useSelector((state) => state.searchReducer);
 
   const initialValues = {
     search: "",

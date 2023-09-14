@@ -1,7 +1,7 @@
 // CORE
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { status: false };
+const initialState = { status: true };
 
 const statusServerSlice = createSlice({
   name: "statusServer",
